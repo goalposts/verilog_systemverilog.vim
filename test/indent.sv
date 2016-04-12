@@ -970,8 +970,11 @@ endprogram
 // Code from: https://github.com/vhda/verilog_systemverilog.vim/issues/51
 module dut_wrapper (
     interface source_IF,
-    interface sink_IF,
-    interface ctrl_IF,
+    interface sink_IF
+    `ifdef TEST
+        ,
+        interface ctrl_IF
+    `endif
 );
 
 endmodule
